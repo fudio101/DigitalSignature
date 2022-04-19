@@ -5,3 +5,5 @@
  * Time: 10:23
  */
 ?>
+
+@extends('main')

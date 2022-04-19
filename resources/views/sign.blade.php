@@ -6,4 +6,4 @@
  */
 ?>
 
-@include('main')
+@extends('main')

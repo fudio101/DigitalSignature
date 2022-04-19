@@ -19,5 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/sign', [SignController::class, 'index']);
-Route::get('/verify', [VerifyController::class, 'index']);
+Route::get('/sign', [SignController::class, 'index'])->name('sign');
+Route::get('/verify', [VerifyController::class, 'index'])->name('verify');
