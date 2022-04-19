@@ -32,18 +32,21 @@
 <body>
 <div class="container-scroller">
     <!-- sidebar -->
-@include('_sidebar')
+@include('layouts._sidebar')
 <!-- partial -->
     <div class="container-fluid page-body-wrapper">
         <!-- navbar -->
-    @include('_navbar')
+    @include('layouts._navbar')
     <!-- partial -->
         <div class="main-panel">
             <div class="content-wrapper">
             </div>
+
+            @yield('content')
+
             <!-- content-wrapper ends -->
             <!-- footer -->
-        @include('_footer')
+        @include('layouts._footer')
         <!-- partial -->
         </div>
         <!-- main-panel ends -->
@@ -51,6 +54,6 @@
     <!-- page-body-wrapper ends -->
 </div>
 <!-- container-scroller -->
-@include('js')
+@include('layouts._js')
 </body>
 </html>

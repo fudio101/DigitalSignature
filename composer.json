@@ -10,7 +10,8 @@
         "fruitcake/laravel-cors": "dev-develop",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "dev-develop",
-        "laravel/tinker": "dev-develop"
+        "laravel/tinker": "dev-develop",
+        "ext-openssl": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
