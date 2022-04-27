@@ -16,6 +16,7 @@ class KeyService
 {
     /**
      * Creates an OpenSSL certificate
+     * OPENSSL_CONF environmental variable set to openssl.cnf path
      * @param $dn array Associative array "key"=>"value"
      * @param $duration int Number of days which the certificate is valid
      * @param $password string Password of this certificate
@@ -34,7 +35,7 @@ class KeyService
         string $password,
         string $vaultPath,
         string $fileNameNoExtension,
-        string $configFile = "C:/xampp/apache/conf/openssl.cnf"
+        string $configFile = null
     ): string|array {
         $configParams = null;
         if ($configFile) {
