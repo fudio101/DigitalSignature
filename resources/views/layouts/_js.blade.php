@@ -6,25 +6,45 @@
  */
 ?>
 
-<!-- plugins:js -->
-<script src="{{asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>
-<!-- endinject -->
-<!-- Plugin js for this page -->
-<script src="{{asset('assets/vendors/chart.js/Chart.min.js')}}"></script>
-<script src="{{asset('assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
-<script src="{{asset('assets/vendors/jvectormap/jquery-jvectormap.min.js')}}"></script>
-<script src="{{asset('assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-<script src="{{asset('assets/vendors/owl-carousel-2/owl.carousel.min.js')}}"></script>
-<!-- End plugin js for this page -->
-<!-- inject:js -->
-<script src="{{asset('assets/js/off-canvas.js')}}"></script>
-<script src="{{asset('assets/js/hoverable-collapse.js')}}"></script>
-<script src="{{asset('assets/js/misc.js')}}"></script>
-<script src="{{asset('assets/js/settings.js')}}"></script>
-<script src="{{asset('assets/js/todolist.js')}}"></script>
-<!-- endinject -->
-<!-- Custom js for this page -->
-<script src="{{asset('assets/js/dashboard.js')}}"></script>
-<!-- End custom js for this page -->
+<!-- jQuery -->
+<script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{asset('assets/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{{asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- ChartJS -->
+<script src="{{asset('assets/plugins/chart.js/Chart.min.js')}}"></script>
+<!-- Sparkline -->
+<script src="{{asset('assets/plugins/sparklines/sparkline.js')}}"></script>
+<!-- JQVMap -->
+<script src="{{asset('assets/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+<script src="{{asset('assets/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{{asset('assets/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+<!-- daterangepicker -->
+<script src="{{asset('assets/plugins/moment/moment.min.js')}}"></script>
+<script src="{{asset('assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{asset('assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+<!-- Summernote -->
+<script src="{{asset('assets/plugins/summernote/summernote-bs4.min.js')}}"></script>
+<!-- overlayScrollbars -->
+<script src="{{asset('assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('assets/js/adminlte.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<!-- <script src="{{asset('assets/js/demo.js')}}"></script> -->
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{asset('assets/js/pages/dashboard.js')}}"></script>
+<script>
+    $(function() {
+        //Add text editor
+        $('#compose-textarea').summernote()
+    })
+</script>
 
 @yield('js')
