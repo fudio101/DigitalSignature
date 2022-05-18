@@ -43,6 +43,8 @@
 <div class="wrapper">
     @include('layouts._sidebar')
     @yield('sign')
+    @yield('verify')
+    @yield('creat_key')
     @include('layouts._js')
 </div>
 

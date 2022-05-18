@@ -22,3 +22,4 @@ Route::get('/', function () {
 Route::get('/sign', [SignController::class, 'index'])->name('sign');
 Route::get('/create-key', [SignController::class, 'keyIndex'])->name('keyIndex');
 Route::get('/verify', [VerifyController::class, 'index'])->name('verify');
+

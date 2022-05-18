@@ -9,9 +9,6 @@
 @extends('main')
 @section('sign')
 
-    <!-- Main Sidebar Container -->
-
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -43,7 +40,7 @@
                 <form action="">
                     <div class="card-body">
                         <div class="form-group h-25">
-                            <textarea id="compose-textarea" class="form-control" style="height: 300px">
+                            <textarea id="compose-textarea" class="form-control" >
                 </textarea>
                         </div>
                         <div class="form-group m-0">
