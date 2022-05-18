@@ -6,7 +6,7 @@
  */
 ?>
 
-<footer class="main-footer">
+<footer class="main-footer dark-mode">
     <strong>Copyright &copy; 2014-2021. </strong>
     DigitalSignature
     <div class="float-right d-none d-sm-inline-block">
