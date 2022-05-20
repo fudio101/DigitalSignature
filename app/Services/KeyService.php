@@ -37,22 +37,22 @@ class KeyService
         string $fileNameNoExtension,
         string $configFile = null
     ): string|array {
-        $configParams = null;
-        if ($configFile) {
-            $configParams = array('config' => $configFile);
-        }
+            $configParams = null;
+            if ($configFile) {
+                $configParams = array('config' => $configFile);
+            }
 
-        // Generate a new private (and public) key pair
-        $privkey = openssl_pkey_new($configParams);
-        if ($privkey === false) {
-            return false;
-        }
-        // generates a certificate signing request
+            // Generate a new private (and public) key pair
+            $privkey = openssl_pkey_new($configParams);
+            if ($privkey === false) {
+                return false;
+            }
+            // generates a certificate signing request
 //        $csr = openssl_csr_new($dn, $privkey, $configParams);
 //        if ($csr === false) {
 //            return false;
 //        }
-        // This creates a self-signed cert that is valid for $duration days
+            // This creates a self-signed cert that is valid for $duration days
 //        $sscert = openssl_csr_sign($csr, null, $privkey, $duration, $configParams);
 //        if ($sscert === false) {
 //            return false;
