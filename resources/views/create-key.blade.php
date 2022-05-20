@@ -7,7 +7,7 @@
 ?>
 
 @extends('main')
-@section('sign')
+@section('creat_key')
 
     <!-- Main Sidebar Container -->
 
@@ -19,13 +19,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">SIGN</h1>
+                        <h1 class="m-0">CREAT KEY</h1>
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Sign</li>
+                            <li class="breadcrumb-item active">Creat key</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -43,8 +43,8 @@
                 <form action="">
                     <div class="card-body">
                         <div class="form-group h-25">
-                            <textarea id="compose-textarea" class="form-control" style="height: 300px">
-                </textarea>
+                            <textarea id="compose-textarea" class="form-control">
+                            </textarea>
                         </div>
                         <div class="form-group m-0">
                             <label>Select key</label>
