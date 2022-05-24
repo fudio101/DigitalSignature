@@ -4,6 +4,7 @@ namespace App\Services;
 
 
 use Elliptic\EC;
+use Elliptic\EC\KeyPair;
 
 /**
  * Class ECDSAService
@@ -40,10 +41,91 @@ class ECDSAService
     }
 
     /**
+     * return private key as text
+     * @return string|null
+     */
+    final public function genKey(): ?string
+    {
+        /* Create and initialize EC context
+         * (better do it once and reuse it)
+         * secp256k1 64chars
+         * p192 48chars
+         * p224 56chars
+         * p256 64chars
+         * p384 96chars
+         * p521 132chars
+         * ed25519 64chars
+         */
+        $ec = new EC('secp256k1');
+
+        // Generate keys
+        return $ec->genKeyPair()->getPrivate('hex');
+    }
+
+    /**
+     * Return key from text key
+     * @param  string  $plainTextKey
+     * @return KeyPair
+     */
+    final public function getKey(string $plainTextKey): KeyPair
+    {
+        return (new EC('secp256k1'))->keyFromPrivate($plainTextKey, 'hex');
+    }
+
+    /**
+     * Sign message and return signature as HEX
+     * @param  KeyPair  $pKey
+     * @param  string  $msg
+     * @return string
+     */
+    final public function sign(KeyPair $pKey, string $msg): string
+    {
+        //sign message & convert signature to HEX value
+        return (string) $pKey->sign(bin2hex($msg))->toDER('hex');
+    }
+
+
+    /**
+     * Sign message and return signature as HEX
+     * @param  string  $plainTextKey
+     * @param  string  $msg
+     * @return string
+     */
+    final public function signText(string $plainTextKey, string $msg): string
+    {
+        //sign message & convert signature to HEX value
+        return (string) $this->getKey($plainTextKey)->sign(bin2hex($msg))->toDER('hex');
+    }
+
+    /**
+     * Verify signature
+     * @param  KeyPair  $uKey
+     * @param  string  $msg
+     * @param  string  $signature
+     * @return bool
+     */
+    final public function verify(KeyPair $uKey, string $msg, string $signature): bool
+    {
+        return (boolean) $uKey->verify(bin2hex($msg), $signature);
+    }
+
+    /**
+     * Verify signature
+     * @param  string  $plainTextKey
+     * @param  string  $msg
+     * @param  string  $signature
+     * @return bool
+     */
+    final public function verifyText(string $plainTextKey, string $msg, string $signature): bool
+    {
+        return (boolean) $this->getKey($plainTextKey)->verify(bin2hex($msg), $signature);
+    }
+
+    /**
      * @param  string  $msg
      * @return void
      */
-    final public function test(string $msg): void
+    private function test(string $msg): void
     {
         /* Create and initialize EC context
          * (better do it once and reuse it)
