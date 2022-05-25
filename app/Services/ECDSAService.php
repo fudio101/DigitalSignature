@@ -73,6 +73,15 @@ class ECDSAService
     }
 
     /**
+     * @param  KeyPair  $pKey
+     * @return string`
+     */
+    final public function getPublicKey(KeyPair $pKey): string
+    {
+        return (string) $pKey->getPublic('hex');
+    }
+
+    /**
      * Sign message and return signature as HEX
      * @param  KeyPair  $pKey
      * @param  string  $msg

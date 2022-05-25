@@ -26,7 +26,7 @@ Route::get('/test/{msg}', [SignController::class, 'test'])->name('test');
 Route::prefix('sign')->group(function () {
     Route::get('/', [SignController::class, 'index'])->name('sign');
     Route::prefix('ECDSA')->group(function () {
-        Route::post('gen-key', [SignController::class, 'genKeyECDSA'])->name('ECDSAGenKey');
+        Route::get('gen-key', [SignController::class, 'genKeyECDSA'])->name('ECDSAGenKey');
         Route::get('/', [SignController::class, 'signECDSA'])->name('ECDSASign');
     });
 });

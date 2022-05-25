@@ -82,6 +82,7 @@ class SignController extends Controller
             return response()->json([
                 'error' => false,
                 'signature' => $signature,
+                'publicKey' => $this->ECDSAService->getPublicKey($key),
             ]);
         }
 
