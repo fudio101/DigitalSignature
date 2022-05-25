@@ -7,6 +7,7 @@ use App\Services\KeyService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Laravel\Sanctum\Sanctum;
 
@@ -17,8 +18,8 @@ class SignController extends Controller
      * @var ECDSAService
      * Import Algorithm Service
      */
-    protected $keyService;
-    protected $ECDSAService;
+    protected KeyService $keyService;
+    protected ECDSAService $ECDSAService;
 
     public function __construct(KeyService $keyService, ECDSAService $ECDSAService)
     {
@@ -29,7 +30,7 @@ class SignController extends Controller
     /**
      * @return Factory|View|Application
      */
-    public function index(): Factory|View|Application
+    final public function index(): Factory|View|Application
     {
         return view('sign');
     }
@@ -37,7 +38,7 @@ class SignController extends Controller
     /**
      * @return Factory|View|Application
      */
-    public function keyIndex(): Factory|View|Application
+    final public function keyIndex(): Factory|View|Application
     {
         $dn = array(
             "countryName" => "VN",
@@ -52,8 +53,45 @@ class SignController extends Controller
         return view('create-key');
     }
 
-    public function test($msg): void
+    /**
+     * @return JsonResponse
+     */
+    final public function genKeyECDSA(): JsonResponse
     {
-        $this->ECDSAService->test($msg);
+        return response()->json([
+            'key' => $this->ECDSAService->genKey()
+        ]);
     }
+
+    /**
+     * @param  Request  $request
+     * @return JsonResponse
+     */
+    final public function signECDSA(Request $request): JsonResponse
+    {
+        $validate = $request->validate([
+            'msg' => 'required',
+            'hexKey' => 'required',
+        ]);
+
+        if ($validate) {
+            $msg = $request->input('msg');
+            $hexKey = $request->input('hexKey');
+            $key = $this->ECDSAService->getKey($hexKey);
+            $signature = $this->ECDSAService->sign($key, $msg);
+            return response()->json([
+                'error' => false,
+                'signature' => $signature,
+            ]);
+        }
+
+        return response()->json([
+            'error' => true,
+        ]);
+    }
+
+//    public function test($msg): void
+//    {
+//        $this->ECDSAService->test($msg);
+//    }
 }

@@ -38,6 +38,8 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.min.css')}}">
     <!-- My css -->
     <link rel="stylesheet" href="{{asset('assets/css/user.css')}}">
+
+    <meta name="csrf-token" content="{{csrf_token()}}">
 </head>
 <body>
 <div class="wrapper">
@@ -47,7 +49,6 @@
     @yield('creat_key')
     @include('layouts._js')
 </div>
-
 
 
 @include('layouts._footer')
