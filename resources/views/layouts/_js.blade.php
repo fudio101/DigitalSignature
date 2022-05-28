@@ -40,11 +40,11 @@
 <!-- <script src="{{asset('assets/js/demo.js')}}"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('assets/js/pages/dashboard.js')}}"></script>
-{{--<script>--}}
-{{--    $(function() {--}}
-{{--        //Add text editor--}}
-{{--        $('#compose-textarea').summernote()--}}
-{{--    })--}}
-{{--</script>--}}
+<script>
+    function copyToClipboard() {
+        document.getElementById("signtext").select();
+        document.execCommand('copy');
+    }
+</script>
 
 @yield('js')

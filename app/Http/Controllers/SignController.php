@@ -95,4 +95,8 @@ class SignController extends Controller
 //    {
 //        $this->ECDSAService->test($msg);
 //    }
+    public function sECDSA()
+    {
+        return view('ECDSA');
+    }
 }

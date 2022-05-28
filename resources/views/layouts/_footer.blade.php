@@ -7,7 +7,7 @@
 ?>
 
 <footer class="main-footer float-md-right">
-    <strong>Copyright &copy; 2014-2021.</strong>
+    <strong>Copyright &copy; 2022.</strong>
     DigitalSignature
     <div class="float-right d-none d-sm-inline-block">
         <b>. Version</b> 1.0.0

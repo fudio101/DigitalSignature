@@ -40,47 +40,52 @@
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control"
                                        aria-label="Recipient's username" aria-describedby="button-addon2">
-                                <button class="btn btn-secondary" type="button" id="button-generate">Generate</button>
+                                <button class="btn btn-secondary" type="button" id="button-generate-RSA">Generate
+                                </button>
                             </div>
                         </div>
                         <div class="form-group m-0">
                             <label>Signature</label>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control"
-                                       aria-describedby="button-addon2" disabled>
-                                <button class="btn btn-secondary" type="button" id="button-copy">Copy</button>
+                                <div class="input-group mb-3">
+                                    <input id="signtext" type="text" class="form-control"
+                                           aria-describedby="button-addon2" value="Hello">
+                                    <button onclick="copyToClipboard()" class="btn btn-secondary" type="button"
+                                    >Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group m-0">
+                                <label>Public key</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control"
+                                           aria-describedby="button-addon2" disabled value="aloô">
+                                    <button class="btn btn-secondary" type="button" id="button-copy2">Copy</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group m-0">
-                            <label>Public key</label>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control"
-                                       aria-describedby="button-addon2" disabled>
-                                <button class="btn btn-secondary" type="button" id="button-copy2">Copy</button>
-                            </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer border">
+                            <button name="sign-btn" type="button" class="btn btn-block btn-secondary btn-lg width-full">
+                                <i class="fas fa-lock"></i>SIGN
+                            </button>
                         </div>
-                    </div>
-                    <!-- /.card-body -->
-                    <div class="card-footer border">
-                        <button name="sign-btn" type="button" class="btn btn-block btn-secondary btn-lg width-full"><i
-                                class="fas fa-lock"></i>
-                            SIGN
-                        </button>
                     </div>
                 </form>
                 <!-- /.card-footer -->
             </div>
+
         </section>
         <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+        <!-- /.content-wrapper -->
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
     </div>
-    <!-- ./wrapper -->
-    @include('layouts._js')
+
+
 @endsection

@@ -86,7 +86,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('sign')}}" class="nav-link">
+                            <a href="{{route('ECDSA')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>ECDSA</p>
                             </a>
