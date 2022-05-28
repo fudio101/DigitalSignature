@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <li class="nav-item menu-open">
-                    <a href="" class="nav-link active">
+                    <a href="" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             SIGN
@@ -80,13 +80,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('sign')}}" class="nav-link">
+                            <a href="{{route('RSASignShow')}}" class="nav-link" id="RSASign">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>RSA</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('ECDSA')}}" class="nav-link">
+                            <a href="{{route('ECDSASignShow')}}" class="nav-link" id="ECDSASign">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>ECDSA</p>
                             </a>
@@ -94,7 +94,7 @@
                     </ul>
                 </li>
                 <li class="nav-item  menu-open">
-                    <a href="#" class="nav-link active">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             VERIFY
@@ -103,9 +103,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('verify')}}" class="nav-link">
+                            <a href="{{route('RSAVerifyShow')}}" class="nav-link" id="RSAVerify">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Verify</p>
+                                <p>RSA</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('ECDSAVerifyShow')}}" class="nav-link" id="ECDSAVerify">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>ECDSA</p>
                             </a>
                         </li>
                     </ul>

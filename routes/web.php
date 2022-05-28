@@ -15,28 +15,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('sign');
-});
+Route::get('/', [SignController::class, 'index']);
 
-Route::get('/create-key', [SignController::class, 'keyIndex'])->name('keyIndex');
-Route::get('/verify', [VerifyController::class, 'index'])->name('verify');
-Route::get('/test/{msg}', [SignController::class, 'test'])->name('test');
-
-Route::get('ECDSA', [SignController::class, 'sECDSA'])->name('ECDSA');
+//Route::get('/create-key', [SignController::class, 'keyIndex'])->name('keyIndex');
+//Route::get('/verify', [VerifyController::class, 'index'])->name('verify');
+//Route::get('/test/{msg}', [SignController::class, 'test'])->name('test');
 
 Route::prefix('sign')->group(function () {
     Route::get('/', [SignController::class, 'index'])->name('sign');
     Route::prefix('ECDSA')->group(function () {
-        Route::get('gen-key', [SignController::class, 'genKeyECDSA'])->name('ECDSAGenKey');
-        Route::get('/', [SignController::class, 'signECDSA'])->name('ECDSASign');
+        Route::get('/', [SignController::class, 'showECDSA'])->name('ECDSASignShow');
+        Route::post('gen-key', [SignController::class, 'genKeyECDSA'])->name('ECDSAGenKey');
+        Route::post('/', [SignController::class, 'signECDSA'])->name('ECDSASign');
     });
     Route::prefix('RSASignature')->group(function () {
-        Route::get('gen-key', [SignController::class, 'genKeyRSASignature'])->name('RSASignatureGenKey');
-        Route::get('/', [SignController::class, 'signECDSA'])->name('RSASignatureSign');
+        Route::get('/', [SignController::class, 'showRSA'])->name('RSASignShow');
+        Route::post('gen-key', [SignController::class, 'genKeyRSASignature'])->name('RSASignatureGenKey');
+        Route::post('/', [SignController::class, 'signRSA'])->name('RSASignatureSign');
     });
 });
 
 Route::prefix('verify')->group(function () {
-    Route::get('ECDSA', [VerifyController::class, 'verifyECDSA'])->name('ECDSAVerify');
+    Route::prefix('ECDSA')->group(function () {
+        Route::get('/', [VerifyController::class, 'showECDSA'])->name('ECDSAVerifyShow');
+        Route::post('/', [VerifyController::class, 'verifyECDSA'])->name('ECDSAVerify');
+    });
+    Route::prefix('RSA')->group(function () {
+        Route::get('/', [VerifyController::class, 'showRSA'])->name('RSAVerifyShow');
+        Route::post('/', [VerifyController::class, 'verifyRSA'])->name('RSAVerify');
+    });
 });

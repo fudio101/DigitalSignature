@@ -67,9 +67,19 @@ class ECDSAService
      * @param  string  $plainTextKey
      * @return KeyPair
      */
-    final public function getKey(string $plainTextKey): KeyPair
+    final public function getPKey(string $plainTextKey): KeyPair
     {
         return (new EC('secp256k1'))->keyFromPrivate($plainTextKey, 'hex');
+    }
+
+    /**
+     * Return key from text key
+     * @param  string  $plainTextKey
+     * @return KeyPair
+     */
+    final public function getUKey(string $plainTextKey): KeyPair
+    {
+        return (new EC('secp256k1'))->keyFromPublic($plainTextKey, 'hex');
     }
 
     /**
@@ -127,7 +137,7 @@ class ECDSAService
      */
     final public function verifyText(string $plainTextKey, string $msg, string $signature): bool
     {
-        return (boolean) $this->getKey($plainTextKey)->verify(bin2hex($msg), $signature);
+        return (boolean) $this->getUKey($plainTextKey)->verify(bin2hex($msg), $signature);
     }
 
     /**

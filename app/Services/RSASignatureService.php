@@ -3,6 +3,9 @@
 namespace App\Services;
 
 
+use Illuminate\Support\Facades\Hash;
+use OpenSSLAsymmetricKey;
+
 /**
  * Class RSASignatureService
  * @package App\Services
@@ -42,9 +45,57 @@ class RSASignatureService
      * @param  string  $key
      * @return string
      */
-    final public function getKey(string $key): string
+    final public function getPublicKey(string $key): string
     {
         // Extract the public key from $privateKey to $publicKey
         return (string) openssl_pkey_get_details(openssl_pkey_get_private($key))['key'];
+    }
+
+    /**
+     * @param  string  $key
+     * @return OpenSSLAsymmetricKey|bool
+     */
+    final public function getPKey(string $key): OpenSSLAsymmetricKey|bool
+    {
+        return openssl_pkey_get_private($key);
+    }
+
+    /**
+     * @param  string  $key
+     * @return OpenSSLAsymmetricKey|bool
+     */
+    final public function getUKey(string $key): OpenSSLAsymmetricKey|bool
+    {
+        return openssl_pkey_get_public($key);
+    }
+
+    /**
+     * @param  OpenSSLAsymmetricKey  $key
+     * @param  string  $msg
+     * @return array
+     */
+    final public function sign(OpenSSLAsymmetricKey $key, string $msg): array
+    {
+        $hashValue = Hash::make($msg);
+
+        openssl_private_encrypt($hashValue, $encrypted, $key);
+
+        return [$hashValue, base64_encode($encrypted)];
+    }
+
+    final public function verify(OpenSSLAsymmetricKey $key, string $msg, string $signature)
+    {
+        openssl_public_decrypt(base64_decode($signature), $decrypted, $key);
+
+        return Hash::check($msg, $decrypted);
+    }
+
+    final public function verifyText(string $textKey, string $msg, string $signature)
+    {
+        $key = $this->getUKey($textKey);
+
+        openssl_public_decrypt(base64_decode($signature), $decrypted, $key);
+
+        return Hash::check($msg, $decrypted);
     }
 }

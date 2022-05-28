@@ -8,6 +8,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Laravel\Sanctum\Sanctum;
 
@@ -28,11 +29,19 @@ class SignController extends Controller
     }
 
     /**
+     * @return RedirectResponse
+     */
+    final public function index(): RedirectResponse
+    {
+        return redirect()->route('ECDSAShow');
+    }
+
+    /**
      * @return Factory|View|Application
      */
-    final public function index(): Factory|View|Application
+    final public function showECDSA(): Factory|View|Application
     {
-        return view('sign');
+        return view('ECDSASign', ['page' => 'ECDSASign']);
     }
 
     /**
@@ -52,14 +61,14 @@ class SignController extends Controller
     final public function signECDSA(Request $request): JsonResponse
     {
         $validate = $request->validate([
-            'msg' => 'required',
-            'hexKey' => 'required',
+            'message' => 'required',
+            'privateKey' => 'required',
         ]);
 
         if ($validate) {
-            $msg = $request->input('msg');
-            $hexKey = $request->input('hexKey');
-            $key = $this->ECDSAService->getKey($hexKey);
+            $msg = $request->input('message');
+            $hexKey = $request->input('privateKey');
+            $key = $this->ECDSAService->getPKey($hexKey);
             $signature = $this->ECDSAService->sign($key, $msg);
             return response()->json([
                 'error' => false,
@@ -73,7 +82,18 @@ class SignController extends Controller
         ]);
     }
 
-    final public function genKeyRSASignature()
+    /**
+     * @return Factory|View|Application
+     */
+    final public function showRSA(): Factory|View|Application
+    {
+        return view('RSASign', ['page' => 'RSASign']);
+    }
+
+    /**
+     * @return JsonResponse
+     */
+    final public function genKeyRSASignature(): JsonResponse
     {
         $key = $this->RSASignatureService->genKey();
         return response()->json([
@@ -81,8 +101,35 @@ class SignController extends Controller
         ]);
     }
 
-    public function sECDSA()
+    /**
+     * @param  Request  $request
+     * @return JsonResponse
+     */
+    final public function signRSA(Request $request): JsonResponse
     {
-        return view('ECDSA');
+        $validate = $request->validate([
+            'message' => 'required',
+            'privateKey' => 'required',
+        ]);
+
+        if ($validate) {
+            $msg = $request->input('message');
+            $textKey = $request->input('privateKey');
+            $uKey = $this->RSASignatureService->getPublicKey($textKey);
+            $pKey = $this->RSASignatureService->getPKey($textKey);
+            if ($pKey) {
+                $result = $this->RSASignatureService->sign($pKey, $msg);
+                return response()->json([
+                    'error' => false,
+                    'hashValue' => $result[0],
+                    'signature' => $result[1],
+                    'publicKey' => $uKey,
+                ]);
+            }
+        }
+
+        return response()->json([
+            'error' => true,
+        ]);
     }
 }
