@@ -61,6 +61,7 @@
 
     $(document).ready(function () {
         $('#{{$page}}').addClass('active');
+        $('#{{$parent}}').addClass('menu-open');
     });
 </script>
 

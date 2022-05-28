@@ -41,7 +41,7 @@ class SignController extends Controller
      */
     final public function showECDSA(): Factory|View|Application
     {
-        return view('ECDSASign', ['page' => 'ECDSASign']);
+        return view('ECDSASign', ['page' => 'ECDSASign', 'parent' => 'sign']);
     }
 
     /**
@@ -87,7 +87,7 @@ class SignController extends Controller
      */
     final public function showRSA(): Factory|View|Application
     {
-        return view('RSASign', ['page' => 'RSASign']);
+        return view('RSASign', ['page' => 'RSASign', 'parent' => 'sign']);
     }
 
     /**

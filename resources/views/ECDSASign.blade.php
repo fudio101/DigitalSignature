@@ -16,7 +16,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-12">
-                        <h1 class="m-0">Sign With Elliptic Curve Digital Signature Algorithm</h1>
+                        <h1 class="m-0">Sign With ECDSA (Elliptic Curve Digital Signature Algorithm)</h1>
                     </div>
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -55,6 +55,7 @@
                                 SIGN
                             </button>
                         </div>
+                    </div>
                 </form>
                 <!-- /.card-footer -->
             </div>
@@ -81,7 +82,7 @@
                     type: "POST",
                     data: $(this).serialize(),
                     success: function (data) {
-                        if(!data['error']) {
+                        if (!data['error']) {
                             $('#result').html(`
                             <div class="form-group m-0">
                                 <label for="signature">Signature</label>

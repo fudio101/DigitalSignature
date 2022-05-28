@@ -31,7 +31,7 @@ class VerifyController extends Controller
      */
     final public function showECDSA(): Factory|View|Application
     {
-        return view('ECDSAVerify', ['page' => 'ECDSAVerify']);
+        return view('ECDSAVerify', ['page' => 'ECDSAVerify', 'parent' => 'verify']);
     }
 
     /**
@@ -67,7 +67,7 @@ class VerifyController extends Controller
      */
     final public function showRSA(): Factory|View|Application
     {
-        return view('RSAVerify', ['page' => 'RSAVerify']);
+        return view('RSAVerify', ['page' => 'RSAVerify', 'parent' => 'verify']);
     }
 
     /**

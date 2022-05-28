@@ -60,17 +60,17 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+            </div>
+            <div class="info">
+                <a href="" class="d-block font-weight-bolder ">Team 09</a>
+            </div>
+        </div>
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                    </div>
-                    <div class="info">
-                        <a href="" class="d-block font-weight-bolder ">Team 09</a>
-                    </div>
-                </div>
-                <li class="nav-item menu-open">
+                <li id="sign" class="nav-item">
                     <a href="" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -93,7 +93,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item  menu-open">
+                <li id="verify" class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
