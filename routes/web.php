@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', static function () {
     return view('welcome');
 });
 
@@ -28,6 +28,10 @@ Route::prefix('sign')->group(function () {
     Route::prefix('ECDSA')->group(function () {
         Route::get('gen-key', [SignController::class, 'genKeyECDSA'])->name('ECDSAGenKey');
         Route::get('/', [SignController::class, 'signECDSA'])->name('ECDSASign');
+    });
+    Route::prefix('RSASignature')->group(function () {
+        Route::get('gen-key', [SignController::class, 'genKeyRSASignature'])->name('RSASignatureGenKey');
+        Route::get('/', [SignController::class, 'signECDSA'])->name('RSASignatureSign');
     });
 });
 

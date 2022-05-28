@@ -3,23 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Services\ECDSAService;
-use App\Services\KeyService;
+use App\Services\RSASignatureService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class VerifyController extends Controller
 {
     /**
-     * @var KeyService
+     * @var RSASignatureService
      * @var ECDSAService
      * Import Algorithm Service
      */
-    protected KeyService $keyService;
+    protected RSASignatureService $RSASignatureService;
     protected ECDSAService $ECDSAService;
 
-    public function __construct(KeyService $keyService, ECDSAService $ECDSAService)
+    public function __construct(RSASignatureService $RSASignatureService, ECDSAService $ECDSAService)
     {
-        $this->keyService = $keyService;
+        $this->RSASignatureService = $RSASignatureService;
         $this->ECDSAService = $ECDSAService;
     }
 

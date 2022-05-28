@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\ECDSAService;
-use App\Services\KeyService;
+use App\Services\RSASignatureService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -14,16 +14,16 @@ use Laravel\Sanctum\Sanctum;
 class SignController extends Controller
 {
     /**
-     * @var KeyService
+     * @var RSASignatureService
      * @var ECDSAService
      * Import Algorithm Service
      */
-    protected KeyService $keyService;
+    protected RSASignatureService $RSASignatureService;
     protected ECDSAService $ECDSAService;
 
-    public function __construct(KeyService $keyService, ECDSAService $ECDSAService)
+    public function __construct(RSASignatureService $RSASignatureService, ECDSAService $ECDSAService)
     {
-        $this->keyService = $keyService;
+        $this->RSASignatureService = $RSASignatureService;
         $this->ECDSAService = $ECDSAService;
     }
 
@@ -33,24 +33,6 @@ class SignController extends Controller
     final public function index(): Factory|View|Application
     {
         return view('sign');
-    }
-
-    /**
-     * @return Factory|View|Application
-     */
-    final public function keyIndex(): Factory|View|Application
-    {
-        $dn = array(
-            "countryName" => "VN",
-            "stateOrProvinceName" => "HCM",
-            "localityName" => "Thu Duc",
-            "organizationName" => "Fudio",
-            "organizationalUnitName" => "Fudio",
-            "commonName" => "fudio101",
-            "emailAddress" => "thenguyen1024@gmail.com"
-        );
-        $this->keyService->createCertificate($dn, 365, 'Ng01637202484', public_path(), '1');
-        return view('create-key');
     }
 
     /**
@@ -91,8 +73,11 @@ class SignController extends Controller
         ]);
     }
 
-//    public function test($msg): void
-//    {
-//        $this->ECDSAService->test($msg);
-//    }
+    final public function genKeyRSASignature()
+    {
+        $key = $this->RSASignatureService->genKey();
+        return response()->json([
+            'key' => $key,
+        ]);
+    }
 }
