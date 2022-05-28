@@ -47,9 +47,6 @@
     @yield('creat_key')
     @include('layouts._js')
 </div>
-
-
-
 @include('layouts._footer')
 </body>
 

@@ -50,7 +50,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{route('sign')}}" class="brand-link">
         <img src="{{asset('assets/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Digital Signature</span>
@@ -63,84 +63,35 @@
             <div class="image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Team</a>
-            </div>
-        </div>
-
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                       aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-sidebar">
-                        <i class="fas fa-search fa-fw"></i>
-                    </button>
-                </div>
+                <a href="#" class="d-block font-weight-bolder ">Team 09</a>
             </div>
         </div>
 
         <!-- Sidebar Menu -->
-        <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                   with font-awesome or any other icon font library -->
-                <li class="nav-item menu-open">
-                    <a href="" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Sign
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('keyIndex')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Creat key</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('sign')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Sign</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                   with font-awesome or any other icon font library -->
-                <li class="nav-item menu-open">
-                    <a href="" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Verify
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('verify')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Verify</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('sign')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Public</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+        <div class="d-grid gap-2">
+            <nav class="p-2 bg-gradient-dark border">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <li class="nav-item">
+                        <a href="{{route('sign')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Sign</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="p-2 bg-gradient-dark border">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <li class="nav-item">
+                        <a href="{{route('verify')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Verify</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

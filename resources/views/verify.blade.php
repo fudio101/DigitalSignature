@@ -25,13 +25,6 @@
                     <div class="col-sm-6">
                         <h1 class="m-0">VERIFY</h1>
                     </div>
-                    <!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Public</li>
-                        </ol>
-                    </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
@@ -47,10 +40,21 @@
                 <form action="">
                     <div class="card-body">
                         <div class="form-group h-25">
-                            <textarea id="compose-textarea" class="form-control">
-                </textarea>
+                            <textarea id="compose-textarea" class="form-control"></textarea>
                         </div>
                         <div class="form-group m-0">
+                            <label>Signature</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control"
+                                       aria-describedby="button-addon2">
+                            </div>
+                        </div>
+                        <div class="form-group m-0">
+                            <label>Public key</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control"
+                                       aria-describedby="button-addon2">
+                            </div>
                         </div>
                     </div>
                     <!-- /.card-body -->
