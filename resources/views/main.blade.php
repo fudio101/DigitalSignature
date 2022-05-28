@@ -45,6 +45,7 @@
 <div class="wrapper">
     @include('layouts._sidebar')
     @yield('sign')
+    @yield('ECDSA')
     @yield('verify')
     @yield('creat_key')
     @include('layouts._js')

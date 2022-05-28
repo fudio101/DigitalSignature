@@ -15,8 +15,8 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">SIGN</h1>
+                    <div class="col-sm-12">
+                        <h1 class="m-0">Sign With Rivest–Shamir–Adleman</h1>
                     </div>
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -33,8 +33,7 @@
                 <form action="">
                     <div class="card-body">
                         <div class="form-group h-25">
-                            <textarea id="compose-textarea" class="form-control">
-                </textarea>
+                            <textarea id="compose-textarea" class="form-control"></textarea>
                         </div>
                         <div class="form-group m-0">
                             <label>Private key</label>

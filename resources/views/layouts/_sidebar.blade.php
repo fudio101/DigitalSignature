@@ -47,8 +47,10 @@
 </nav>
 <!-- /.navbar -->
 
+
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+
     <!-- Brand Logo -->
     <a href="{{route('sign')}}" class="brand-link">
         <img src="{{asset('assets/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
@@ -58,41 +60,63 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-            </div>
-            <div class="info">
-                <a href="#" class="d-block font-weight-bolder ">Team 09</a>
-            </div>
-        </div>
-
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                    </div>
+                    <div class="info">
+                        <a href="" class="d-block font-weight-bolder ">Team 09</a>
+                    </div>
+                </div>
+                <li class="nav-item menu-open">
+                    <a href="" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            SIGN
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('sign')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>RSA</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('sign')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>ECDSA</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item  menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            VERIFY
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('verify')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Verify</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
         <!-- Sidebar Menu -->
-        <div class="d-grid gap-2">
-            <nav class="p-2 bg-gradient-dark border">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                    data-accordion="false">
-                    <li class="nav-item">
-                        <a href="{{route('sign')}}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Sign</p>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <nav class="p-2 bg-gradient-dark border">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                    data-accordion="false">
-                    <li class="nav-item">
-                        <a href="{{route('verify')}}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Verify</p>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
 </aside>
+
+
