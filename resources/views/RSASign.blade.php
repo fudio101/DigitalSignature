@@ -39,8 +39,7 @@
                         <div class="form-group m-0">
                             <label for="privateKey">Private key</label>
                             <div class="input-group mb-3">
-                                <textarea id="privateKey" name="privateKey" type="text" class="form-control">
-                                </textarea>
+                                <textarea id="privateKey" name="privateKey" type="text" class="form-control"></textarea>
                                 <button class="btn btn-secondary" onclick="generateKey()" type="button"
                                         id="button-generate">Generate
                                 </button>
