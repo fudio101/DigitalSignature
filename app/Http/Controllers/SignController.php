@@ -80,4 +80,9 @@ class SignController extends Controller
             'key' => $key,
         ]);
     }
+
+    public function sECDSA()
+    {
+        return view('ECDSA');
+    }
 }

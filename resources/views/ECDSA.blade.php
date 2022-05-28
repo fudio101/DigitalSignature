@@ -5,16 +5,9 @@
  * Time: 10:23
  */
 ?>
-<?php
-/**
- * @author Fudio101
- * Date: 18/04/2022
- * Time: 10:23
- */
-?>
 
 @extends('main')
-@section('verify')
+@section('ECDSA')
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -22,8 +15,8 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">VERIFY</h1>
+                    <div class="col-sm-12">
+                        <h1 class="m-0">Sign With Elliptic Curve Digital Signature Algorithm</h1>
                     </div>
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -43,17 +36,27 @@
                             <textarea id="compose-textarea" class="form-control"></textarea>
                         </div>
                         <div class="form-group m-0">
+                            <label>Private key</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control"
+                                       aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <button class="btn btn-secondary" type="button" id="button-generate">Generate</button>
+                            </div>
+                        </div>
+                        <div class="form-group m-0">
                             <label>Signature</label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control"
-                                       aria-describedby="button-addon2">
+                                       aria-describedby="button-addon2" disabled>
+                                <button class="btn btn-secondary" type="button" id="button-copy">Copy</button>
                             </div>
                         </div>
                         <div class="form-group m-0">
                             <label>Public key</label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control"
-                                       aria-describedby="button-addon2">
+                                       aria-describedby="button-addon2" disabled>
+                                <button class="btn btn-secondary" type="button" id="button-copy2">Copy</button>
                             </div>
                         </div>
                     </div>
@@ -79,6 +82,4 @@
     <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-
 @endsection
-

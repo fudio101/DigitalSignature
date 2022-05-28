@@ -15,13 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', static function () {
-    return view('welcome');
+Route::get('/', function () {
+    return view('sign');
 });
 
 Route::get('/create-key', [SignController::class, 'keyIndex'])->name('keyIndex');
 Route::get('/verify', [VerifyController::class, 'index'])->name('verify');
 Route::get('/test/{msg}', [SignController::class, 'test'])->name('test');
+
+Route::get('ECDSA', [SignController::class, 'sECDSA'])->name('ECDSA');
 
 Route::prefix('sign')->group(function () {
     Route::get('/', [SignController::class, 'index'])->name('sign');
