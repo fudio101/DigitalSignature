@@ -44,10 +44,10 @@
 <body>
 <div class="wrapper">
     @include('layouts._sidebar')
-    @yield('sign')
-    @yield('ECDSA')
-    @yield('verify')
-    @yield('creat_key')
+    @yield('RSASign')
+    @yield('RSAVerify')
+    @yield('ECDSASign')
+    @yield('ECDSAVerify')
     @include('layouts._js')
 </div>
 
