@@ -7,7 +7,7 @@
 ?>
 
 @extends('main')
-@section('ECDSA')
+@section('RSASign')
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -59,16 +59,7 @@
                 <!-- /.card-footer -->
             </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-    <!-- ./wrapper -->
 @endsection
 
 @section('js')

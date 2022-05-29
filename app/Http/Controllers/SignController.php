@@ -33,7 +33,7 @@ class SignController extends Controller
      */
     final public function index(): RedirectResponse
     {
-        return redirect()->route('ECDSAShow');
+        return redirect()->route('ECDSASignShow');
     }
 
     /**

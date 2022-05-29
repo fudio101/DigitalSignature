@@ -7,7 +7,7 @@
 ?>
 
 @extends('main')
-@section('ECDSA')
+@section('RSASign')
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
