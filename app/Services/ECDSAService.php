@@ -100,7 +100,7 @@ class ECDSAService
     final public function sign(KeyPair $pKey, string $msg): string
     {
         //sign message & convert signature to HEX value
-        return (string) $pKey->sign(bin2hex($msg))->toDER('hex');
+        return (string) $pKey->sign(hash('sha256', $msg))->toDER('hex');
     }
 
 
@@ -113,7 +113,7 @@ class ECDSAService
     final public function signText(string $plainTextKey, string $msg): string
     {
         //sign message & convert signature to HEX value
-        return (string) $this->getKey($plainTextKey)->sign(bin2hex($msg))->toDER('hex');
+        return (string) $this->getKey($plainTextKey)->sign(hash('sha256', $msg))->toDER('hex');
     }
 
     /**
@@ -125,7 +125,7 @@ class ECDSAService
      */
     final public function verify(KeyPair $uKey, string $msg, string $signature): bool
     {
-        return (boolean) $uKey->verify(bin2hex($msg), $signature);
+        return (boolean) $uKey->verify(hash('sha256', $msg), $signature);
     }
 
     /**
@@ -137,7 +137,7 @@ class ECDSAService
      */
     final public function verifyText(string $plainTextKey, string $msg, string $signature): bool
     {
-        return (boolean) $this->getUKey($plainTextKey)->verify(bin2hex($msg), $signature);
+        return (boolean) $this->getUKey($plainTextKey)->verify(hash('sha256', $msg), $signature);
     }
 
     /**
